@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/**** Infratstructure ****/
+html, body {
+  height: 100%;
+  background: url('/images/bg-tile.png');
+  background-repeat: repeat;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -20px;
+}
+
+/**** Header ****/
+#logo {
+  height: 50px;
+  width: 275px;
+}
+
+.navlink {
+  border-right: 1px #444 solid;
+  height: 50px;
+  text-align: center;
+  line-height: 55px;
+  font: arial,sans-serif;
+  font-size: 14px;
+}
+
+div.nav-special {
+  color: #fff;
+}
+
+div.nav-special a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/**** Footer ****/
+#footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  display: block;
+  height: 30px;
+}
+
+/**** Styles ****/
+#imageAndTagline {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.largeText1 {
+  font-size: 53px;
+  line-height: 45px;
+  font-weight: lighter;
+  text-align: center;
+  font-family: MuseoSlab-500, Georgia, serif;
+  margin-bottom: 20px;
+}
+
+.largeText2 {
+  font-size: 31px;
+  line-height: 40px;
+  text-align: center;
+  font-family: MuseoSlab-500, Georgia, serif;
+  margin-bottom: 20px;
+}
+
+.largeText3 {
+  font-size: 25px;
+  line-height: 40px;
+  text-align: left;
+  font-family: MuseoSlab-500, Georgia, serif;
+}
+
+.largeText4 {
+  font-size: 42px;
+  line-height: 45px;
+  font-weight: lighter;
+  text-align: center;
+  font-family: MuseoSlab-500, Georgia, serif;
+  margin-bottom: 50px;
+  color: gray;
+}
