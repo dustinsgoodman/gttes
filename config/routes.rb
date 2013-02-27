@@ -1,4 +1,7 @@
 Gttes::Application.routes.draw do
+  resources :calendars
+
+
   resources :users
 
 

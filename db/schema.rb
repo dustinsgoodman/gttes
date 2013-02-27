@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130218194453) do
 
   create_table "users", :force => true do |t|
     t.string   "first_name",                                            :null => false
+    t.string   "string"
     t.string   "last_name",                                             :null => false
     t.string   "phone_number"
     t.string   "login",               :limit => 20,                     :null => false
@@ -25,8 +26,10 @@ ActiveRecord::Schema.define(:version => 20130218194453) do
     t.string   "single_access_token",                                   :null => false
     t.string   "perishable_token",                                      :null => false
     t.integer  "login_count",                        :default => 0,     :null => false
+    t.integer  "integer",                            :default => 0,     :null => false
     t.integer  "failed_login_count",                 :default => 0,     :null => false
     t.datetime "last_request_at"
+    t.datetime "datetime"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
@@ -35,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130218194453) do
     t.datetime "email_confimred_at"
     t.datetime "tos_agreed_at"
     t.boolean  "admin",                              :default => false
+    t.boolean  "boolean",                            :default => false
     t.boolean  "moderator",                          :default => false
     t.boolean  "event_coord",                        :default => false
     t.datetime "created_at",                                            :null => false
