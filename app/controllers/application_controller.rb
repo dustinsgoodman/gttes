@@ -29,6 +29,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    unless logged_in?
+      store_location
+      flash[:notice] = "Please log in to continue"
+      redirect_to login_path
+      return false
+    end
+    unless admin?
+      redirect_to root_url
+      return false
+    end
+  end
+
   def require_no_user
     if logged_in?
       redirect_to account_path
