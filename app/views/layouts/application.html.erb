@@ -54,14 +54,17 @@
                 <li><%= link_to "Blog", "http://startupexchange.wordpress.com/", :class => 'navlink' %></li>
               </ul>
               <% if logged_in? %>
-                
+                <div class="pull-right nav-special span2">
+                  <div id="logout">
+                    <br /><br /><%= link_to "Sign out?", logout_path %>
+                </div>
               <% else %>
-                <form class="navbar-form pull-right">
-                  <input class="span2" type="text" placeholder="Email">
-                  <input class="span2" type="password" placeholder="Password">
-                  <button type="submit" class="btn">Sign in</button>
+                <%= form_for(:user_session, :url => login_path, :html => {:class => "navbar-form pull-right"}) do |f| %>
+                  <%= f.text_field :login, :class => "span2", :placeholder => "Username" %>
+                  <%= f.password_field :password, :class => "span2", :placeholder => "Password" %>
+                  <%= f.submit "Sign in" %>
                   <div class="nav-special"><%= link_to "Click here",new_user_path %> to Register. Forgot Password? <a href="#">Click Here</a></div>
-                </form>
+                <% end %>
               <% end %>
             </div>
           </div>

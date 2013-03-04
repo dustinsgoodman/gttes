@@ -11,14 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218194453) do
+ActiveRecord::Schema.define(:version => 20130227004016) do
+
+  create_table "calendars", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "description"
+    t.string   "facebook_event"
+    t.string   "eventbrite"
+    t.string   "speaker"
+    t.string   "speaker_twitter_handle"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name",                                            :null => false
     t.string   "string"
     t.string   "last_name",                                             :null => false
     t.string   "phone_number"
-    t.string   "login",               :limit => 20,                     :null => false
+    t.string   "login",               :limit => 20
     t.string   "email",               :limit => 100,                    :null => false
     t.string   "crypted_password",                                      :null => false
     t.string   "password_salt",                                         :null => false

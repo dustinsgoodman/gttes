@@ -28,12 +28,21 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
-  
+
   def require_no_user
     if logged_in?
       redirect_to account_path
       return false
     end
+  end
+  
+  def keep_location
+    flash.keep(:return_to)
+  end
+
+  def redirect_to_referrer_or(default, *args)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
   
 end

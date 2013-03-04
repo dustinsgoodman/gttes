@@ -1,18 +1,15 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
+    c.login_field = :login
     c.login_field = :email
   end
 
   attr_accessible :login, :first_name, :last_name, :phone_number,
   :email, :password, :password_confirmation
   
-  validates_presence_of :fname
-  validates_presence_of :lname
+  validates_presence_of :first_name
   validates_presence_of :email
-
-  acts_as_authentic do |c|
-    c.login_field = :email
-  end
+  validates_presence_of :login
 
   #has_and_belongs_to_many :posts
   #has_and_belongs_to_many :post_comments
@@ -44,6 +41,6 @@ class User < ActiveRecord::Base
   end
 
   def name
-    [fname, lname].join(" ")
+    [@first_name, @last_name].join(" ")
   end
 end
