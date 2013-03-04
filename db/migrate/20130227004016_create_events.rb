@@ -1,6 +1,6 @@
-class CreateCalendars < ActiveRecord::Migration
+class CreateEvents < ActiveRecord::Migration
   def up
-    create_table :calendars do |t|
+    create_table :events do |t|
       t.string   :name
       t.datetime :start_time
       t.datetime :end_time
@@ -16,6 +16,6 @@ class CreateCalendars < ActiveRecord::Migration
   end
 
   def down
-    drop_table :calendars
+    drop_table :events
   end
 end

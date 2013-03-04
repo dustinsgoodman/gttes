@@ -6,7 +6,9 @@
     <th></th>
     <th></th>
   </tr>
-
+<%= calendar @events, {:prev_text=>"prev", :next_text=>"next"} do |event| %>
+  <div><%= link_to event.title, event %></div>
+<% end %>
 <% @calendars.each do |calendar| %>
   <tr>
     <td><%= link_to 'Show', calendar %></td>

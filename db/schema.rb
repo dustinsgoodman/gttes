@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130227004016) do
 
-  create_table "calendars", :force => true do |t|
+  create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "start_time"
     t.datetime "end_time"

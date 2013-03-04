@@ -1,12 +1,11 @@
 Gttes::Application.routes.draw do
-  resources :calendars
-
 
   resources :users
+  resources :calendars
+
   resources :user_sessions
   match "login", :to => 'user_sessions#create', :action => 'login'
   match "logout", :to => 'user_sessions#destroy', :action => 'logout'
-
 
   get "home/index"
   match "about", :to => 'home#show'
