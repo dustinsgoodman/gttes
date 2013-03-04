@@ -48,7 +48,7 @@
             <%= link_to image_tag("logo.png", :alt => "Georgia Tech Entreprenuerial Society", :id => 'logo'), root_url, :class => 'brand' %>
             <div class="container-fluid nav-collapse">
               <ul class="nav">
-                <li><%= link_to "About", "/path1", {:class => 'navlink', :style => "border-left: 1px #444 solid;"} %></li>
+                <li><%= link_to "About", about_path, {:class => 'navlink', :style => "border-left: 1px #444 solid;"} %></li>
                 <li><%= link_to "Caldendar", "/path1", :class => 'navlink' %></li>
                 <li><%= link_to "Forum", "/path2", :class => 'navlink' %></li>
                 <li><%= link_to "Blog", "http://startupexchange.wordpress.com/", :class => 'navlink' %></li>
@@ -56,7 +56,7 @@
               <% if logged_in? %>
                 <div class="pull-right nav-special span2">
                   <div id="logout">
-                    <br /><br /><%= link_to "Sign out?", logout_path %>
+                    <%= link_to "Sign out?", logout_path %>
                 </div>
               <% else %>
                 <%= form_for(:user_session, :url => login_path, :html => {:class => "navbar-form pull-right"}) do |f| %>

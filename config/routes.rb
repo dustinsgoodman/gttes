@@ -9,6 +9,7 @@ Gttes::Application.routes.draw do
 
 
   get "home/index"
+  match "about", :to => 'home#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
