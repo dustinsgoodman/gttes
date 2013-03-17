@@ -49,9 +49,9 @@
             <div class="container-fluid nav-collapse">
               <ul class="nav">
                 <li><%= link_to "About", about_path, {:class => 'navlink', :style => "border-left: 1px #444 solid;"} %></li>
-                <li><%= link_to "Caldendar", calendars_path, :class => 'navlink' %></li>
+                <li><%= link_to "Caldendar", calendar_path, :class => 'navlink' %></li>
                 <li><%= link_to "Forum", "/path2", :class => 'navlink' %></li>
-                <li><%= link_to "Blog", "http://startupexchange.wordpress.com/", :class => 'navlink' %></li>
+                <li><%= link_to "Blog", "http://startupexchange.gatech.edu/", :class => 'navlink' %></li>
               </ul>
               <% if logged_in? %>
                 <div class="pull-right nav-special span2">
@@ -87,5 +87,6 @@
     </footer>
   
     <%= javascript_include_tag "application" %>
+    <%= yield :deferred_js %>
   </body>
 </html>
