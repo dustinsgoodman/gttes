@@ -1,23 +1,9 @@
 <h1>Listing calendars</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<%= calendar @events, {:prev_text=>"prev", :next_text=>"next"} do |event| %>
+<%= calendar @events do |event| %>
   <div><%= link_to event.title, event %></div>
 <% end %>
-<% @calendars.each do |calendar| %>
-  <tr>
-    <td><%= link_to 'Show', calendar %></td>
-    <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-    <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<% if current_user.admin? %>
+  <%= link_to 'Create Event', new_event_path %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Calendar', new_calendar_path %>

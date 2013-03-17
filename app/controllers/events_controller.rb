@@ -1,54 +1,55 @@
-class CalendarsController < ApplicationController
+class EventsController < ApplicationController
+
+  before_filter :load_event, :only => [:show, :edit, :update, :destroy]
+
   # GET /calendars
   # GET /calendars.json
   def index
-    @calendars = Calendar.all
+    @events = Event.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @calendars }
+      format.json { render json: @events }
     end
   end
 
   # GET /calendars/1
   # GET /calendars/1.json
   def show
-    @calendar = Calendar.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @calendar }
+      format.json { render json: @event }
     end
   end
 
   # GET /calendars/new
   # GET /calendars/new.json
   def new
-    @calendar = Calendar.new
+    @event = Event.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @calendar }
+      format.json { render json: @event }
     end
   end
 
   # GET /calendars/1/edit
   def edit
-    @calendar = Calendar.find(params[:id])
   end
 
   # POST /calendars
   # POST /calendars.json
   def create
-    @calendar = Calendar.new(params[:calendar])
+    @event = Event.new(params[:event])
 
     respond_to do |format|
-      if @calendar.save
-        format.html { redirect_to @calendar, notice: 'Calendar was successfully created.' }
-        format.json { render json: @calendar, status: :created, location: @calendar }
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,15 +57,14 @@ class CalendarsController < ApplicationController
   # PUT /calendars/1
   # PUT /calendars/1.json
   def update
-    @calendar = Calendar.find(params[:id])
 
     respond_to do |format|
-      if @calendar.update_attributes(params[:calendar])
-        format.html { redirect_to @calendar, notice: 'Calendar was successfully updated.' }
+      if @event.update_attributes(params[:event])
+        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,12 +72,17 @@ class CalendarsController < ApplicationController
   # DELETE /calendars/1
   # DELETE /calendars/1.json
   def destroy
-    @calendar = Calendar.find(params[:id])
-    @calendar.destroy
+    @event.destroy
 
     respond_to do |format|
       format.html { redirect_to calendars_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def load_event
+    @event = Event.find(params[:id])
   end
 end
