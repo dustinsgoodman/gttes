@@ -7,8 +7,8 @@ gem 'rails', '3.2.12'
 
 gem 'mysql2', '~> 0.3.11'
 gem 'authlogic', '~> 3.2.0'
-gem 'calendar_date_select', :git => 'git://github.com/paneq/calendar_date_select.git'
 gem "simple_calendar", "~> 0.1.5"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,7 +19,8 @@ group :assets do
   gem "therubyracer"
   gem "less-rails"
   gem "twitter-bootstrap-rails"
-
+  gem "bootstrap-datetimepicker-rails", "~> 0.0.10"
+  
   gem 'uglifier', '>= 1.0.3'
 end
 
