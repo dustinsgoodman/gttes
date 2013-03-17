@@ -1,14 +1,23 @@
 Gttes::Application.routes.draw do
 
-  resources :users
-  resources :calendars
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => "home#index"
+  match "about", :to => 'home#show'
 
+  #Create routes for user related pages
+  resources :users
+
+  #Create routes for user_session related pages
   resources :user_sessions
   match "login", :to => 'user_sessions#create', :action => 'login'
   match "logout", :to => 'user_sessions#destroy', :action => 'logout'
 
-  get "home/index"
-  match "about", :to => 'home#show'
+  #Create routes for event related pages
+  resources :events
+  match "calendar", :to => "events#index"
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -57,9 +66,7 @@ Gttes::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => "home#index"
+
 
   # See how all your routes lay out with "rake routes"
 
